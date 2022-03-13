@@ -1,7 +1,13 @@
 import { ProductCardDataTestIds, ProductCardProps } from './ProductCard.types';
 import './ProductCard.styles.scss';
 
-const ProductCard = ({ imageUrl, name, currency, price }: ProductCardProps) => {
+const ProductCard = ({
+  imageUrl,
+  name,
+  currency,
+  price,
+  overlays = [],
+}: ProductCardProps) => {
   const formattedPrice = `${currency} ${price.toFixed(2).replace('.', ',')}`;
 
   return (
@@ -14,6 +20,8 @@ const ProductCard = ({ imageUrl, name, currency, price }: ProductCardProps) => {
       />
       <span className="product-name mb-5 px-2">{name}</span>
       <span className="product-price mb-5">{formattedPrice}</span>
+
+      {overlays}
     </div>
   );
 };
