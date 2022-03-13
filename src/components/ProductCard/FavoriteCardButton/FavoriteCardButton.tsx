@@ -14,7 +14,7 @@ const FavoriteCardButton = ({
       <button
         data-testid={FavoriteCardButtonTestIds.Button}
         className="favorite-button d-flex align-items-center justify-content-center"
-        onClick={() => onClick()}
+        onClick={onClick}
       >
         <BsFillHeartFill
           className={`favorite-heart ${isFavorite ? 'favorite' : ''}`}
