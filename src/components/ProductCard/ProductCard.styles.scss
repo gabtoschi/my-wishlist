@@ -1,0 +1,11 @@
+@import '../../styles/colors';
+
+.product-name {
+  font-weight: bold;
+  color: $darkGrey;
+}
+
+.product-price {
+  font-weight: bold;
+  color: $accentYellow;
+}
