@@ -4,6 +4,8 @@ export interface ProductCardProps {
   name: string;
   currency: string;
   price: number;
+
+  overlays?: JSX.Element[];
 }
 
 export enum ProductCardDataTestIds {
