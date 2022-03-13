@@ -3,6 +3,7 @@ import ProductCard from './ProductCard';
 import { ProductCardDataTestIds, ProductCardProps } from './ProductCard.types';
 
 const stubDefaultProps: ProductCardProps = {
+  id: 0,
   imageUrl: 'https://via.placeholder.com/300x300',
   name: 'Nome do produto',
   currency: 'R$',
