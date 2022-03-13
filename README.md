@@ -10,6 +10,8 @@ An e-commerce wishlist vertical slice created in React for a selection process. 
 ## Technology stack
 
 - [Create React App](https://github.com/facebook/create-react-app)
+- ESLint / Prettier
+- Bootstrap
 
 ## Available Scripts
 
