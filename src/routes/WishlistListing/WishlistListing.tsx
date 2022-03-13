@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import FavoriteCardButton from '../../components/ProductCard/FavoriteCardButton/FavoriteCardButton';
 import ProductCardList from '../../components/ProductCardList/ProductCardList';
 import { ProductCardListProps } from '../../components/ProductCardList/ProductCardList.types';
 import { mapProductToCard } from '../../helpers/Product.helper';
@@ -7,27 +6,20 @@ import { useWishlist } from '../../hooks/useWishlist/useWishlist';
 import { ProductAPIData } from '../../models/Product.model';
 import { getProducts } from '../../services/Product.service';
 
-const ProductListing = () => {
+const WishlistListing = () => {
   const [productsData, setProductsData] = useState<ProductAPIData[]>([]);
-  const { wishlistedIds, addToWishlist } = useWishlist();
+  const { wishlistedIds } = useWishlist();
 
   useEffect(() => {
     getProducts().then((data) => setProductsData(data.products));
   }, []);
 
-  const getFavoriteButton = (productId: number) => (
-    <FavoriteCardButton
-      key={`favorite-${productId}`}
-      isFavorite={wishlistedIds.includes(productId)}
-      onClick={() => addToWishlist(productId)}
-    ></FavoriteCardButton>
-  );
-
   const productCards: ProductCardListProps = {
-    products: productsData.map((productData) => ({
-      ...mapProductToCard(productData),
-      overlays: [getFavoriteButton(productData.id)],
-    })),
+    products: productsData
+      .filter((productData) => wishlistedIds.includes(productData.id))
+      .map((productData) => ({
+        ...mapProductToCard(productData),
+      })),
   };
 
   return (
@@ -37,4 +29,4 @@ const ProductListing = () => {
   );
 };
 
-export default ProductListing;
+export default WishlistListing;
