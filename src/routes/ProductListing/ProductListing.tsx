@@ -9,19 +9,26 @@ import { getProducts } from '../../services/Product.service';
 
 const ProductListing = () => {
   const [productsData, setProductsData] = useState<ProductAPIData[]>([]);
-  const { wishlistedIds, addToWishlist } = useWishlist();
+  const { wishlistedIds, addToWishlist, removeFromWishlist } = useWishlist();
 
   useEffect(() => {
     getProducts().then((data) => setProductsData(data.products));
   }, []);
 
-  const getFavoriteButton = (productId: number) => (
-    <FavoriteCardButton
-      key={`favorite-${productId}`}
-      isFavorite={wishlistedIds.includes(productId)}
-      onClick={() => addToWishlist(productId)}
-    ></FavoriteCardButton>
-  );
+  const getFavoriteButton = (productId: number) => {
+    const isFavorite = wishlistedIds.includes(productId);
+    const onClick = isFavorite
+      ? () => removeFromWishlist(productId)
+      : () => addToWishlist(productId);
+
+    return (
+      <FavoriteCardButton
+        key={`favorite-${productId}`}
+        isFavorite={isFavorite}
+        onClick={onClick}
+      ></FavoriteCardButton>
+    );
+  };
 
   const productCards: ProductCardListProps = {
     products: productsData.map((productData) => ({
