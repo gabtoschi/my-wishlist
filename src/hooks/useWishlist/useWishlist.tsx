@@ -15,5 +15,18 @@ export function useWishlist(storageKey = wishlistStorageKey) {
     setWishlistObject({ favorites: newWishlist });
   };
 
-  return { wishlistedIds, addToWishlist };
+  const removeFromWishlist = (idToRemove: number) => {
+    const idArrayIndex = wishlistedIds.indexOf(idToRemove);
+
+    if (idArrayIndex === -1) return;
+
+    setWishlistObject({
+      favorites: [
+        ...wishlistedIds.slice(0, idArrayIndex),
+        ...wishlistedIds.slice(idArrayIndex + 1),
+      ],
+    });
+  };
+
+  return { wishlistedIds, addToWishlist, removeFromWishlist };
 }
