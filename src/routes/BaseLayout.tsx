@@ -1,9 +1,11 @@
 import { BsFillHeartFill, BsGeoAltFill, BsTelephoneFill } from 'react-icons/bs';
 import { Outlet } from 'react-router-dom';
+import Breadcrumb from '../components/Breadcrumb/Breadcrumb';
 import Header from '../components/Header/Header';
 import { HeaderProps } from '../components/Header/Header.types';
+import { SYSTEM_URLS } from '../helpers/Route.helper';
 
-const App = () => {
+const BaseLayout = () => {
   const headerProps: HeaderProps = {
     companyName: 'MinhaLoja',
     links: [
@@ -12,22 +14,26 @@ const App = () => {
       {
         label: 'Lista de desejos',
         icon: <BsFillHeartFill />,
-        internalLink: 'lista-de-desejos',
+        internalLink: SYSTEM_URLS.Wishlist,
       },
     ],
   };
 
   return (
     <>
-      <div className="mb-5">
+      <div className="mb-4">
         <Header {...headerProps} />
       </div>
 
       <div className="container">
+        <div className="mb-4">
+          <Breadcrumb />
+        </div>
+
         <Outlet />
       </div>
     </>
   );
 };
 
-export default App;
+export default BaseLayout;
