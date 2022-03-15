@@ -9,7 +9,7 @@ const Header = ({ companyName, links = [] }: HeaderProps) => {
       <div className="header-wrapper pt-3 pt-md-5 pb-3 pb-md-4">
         <div className="container">
           <div className="row">
-            <div className="col-12 col-md-3 d-flex justify-content-center">
+            <div className="col-12 col-md-3 d-flex justify-content-center mt-3 mt-md-0">
               <h3 className="company-name">{companyName}</h3>
             </div>
             <div className="col-12 col-md-9 container">

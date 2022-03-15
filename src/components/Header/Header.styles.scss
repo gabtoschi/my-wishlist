@@ -15,9 +15,13 @@
   color: $white;
 }
 
-.company-name,
-.links-wrapper {
+.company-name {
   font-weight: bold;
+}
+
+.links-wrapper {
+  font-weight: 500;
+  font-size: 15px;
 }
 
 .search-input {
