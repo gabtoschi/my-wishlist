@@ -9,7 +9,11 @@ const App = () => {
     links: [
       { label: 'Cidade: São Paulo', icon: <BsGeoAltFill /> },
       { label: 'Central de atendimento', icon: <BsTelephoneFill /> },
-      { label: 'Lista de desejos', icon: <BsFillHeartFill /> },
+      {
+        label: 'Lista de desejos',
+        icon: <BsFillHeartFill />,
+        internalLink: 'lista-de-desejos',
+      },
     ],
   };
 

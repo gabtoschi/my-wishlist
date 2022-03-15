@@ -10,6 +10,16 @@
   background-color: $darkPurple;
 }
 
+.header-link {
+  color: $white;
+  text-decoration: none;
+
+  &:hover {
+    color: $white;
+    text-decoration: underline;
+  }
+}
+
 .header-wrapper {
   background-color: $purple;
   color: $white;
