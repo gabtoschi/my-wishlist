@@ -10,7 +10,7 @@ const Header = ({ companyName, links = [] }: HeaderProps) => {
       className="d-flex align-items-center justify-content-center"
     >
       {icon}
-      <Link to={internalLink} className="header-link">
+      <Link to={internalLink} className="header-link d-flex">
         <span className="ms-2">{label}</span>
       </Link>
     </div>
