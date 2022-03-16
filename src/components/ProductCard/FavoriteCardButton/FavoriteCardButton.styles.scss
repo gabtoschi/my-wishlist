@@ -3,8 +3,6 @@
 $button-width: 5vh;
 $triangle-width: calc(5vh / 2);
 
-@debug $triangle-width;
-
 .favorite-button {
   width: $button-width;
   height: 6vh;
