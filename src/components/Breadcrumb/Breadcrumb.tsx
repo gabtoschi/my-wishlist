@@ -9,8 +9,6 @@ const Breadcrumb = ({ separator = DEFAULT_SEPARATOR }: BreadcrumbProps) => {
   const { pathname } = useLocation();
   const matchedRoutes = matchRoutes(SYSTEM_ROUTES, pathname) || [];
 
-  console.log(pathname, matchedRoutes);
-
   const breadcrumbStrings = matchedRoutes
     .map(({ route }) => (route as ExtendedRoute).breadcrumb)
     .filter(Boolean);
