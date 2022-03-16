@@ -28,7 +28,7 @@ describe('Breadcrumb', () => {
       },
     ]);
 
-    render(<Breadcrumb />);
+    render(<Breadcrumb separator=" > " />);
 
     const breadcrumbText = screen.getByText('Test');
     expect(breadcrumbText).toBeInTheDocument();
@@ -50,7 +50,7 @@ describe('Breadcrumb', () => {
       },
     ]);
 
-    render(<Breadcrumb />);
+    render(<Breadcrumb separator=" > " />);
 
     const breadcrumbText = screen.getByText('Test > Another Test');
     expect(breadcrumbText).toBeInTheDocument();
@@ -78,7 +78,7 @@ describe('Breadcrumb', () => {
       },
     ]);
 
-    render(<Breadcrumb />);
+    render(<Breadcrumb separator=" > " />);
 
     const breadcrumbText = screen.getByText('Test > Another Test');
     expect(breadcrumbText).toBeInTheDocument();
