@@ -1,7 +1,12 @@
 @import '../../../styles/colors';
 
+$button-width: 5vh;
+$triangle-width: calc(5vh / 2);
+
+@debug $triangle-width;
+
 .favorite-button {
-  width: 5vh;
+  width: $button-width;
   height: 6vh;
 
   background-color: $black;
@@ -12,6 +17,20 @@
   top: -5px;
   left: 5px;
   z-index: 300;
+
+  &:after {
+    content: '';
+
+    width: 0;
+    height: 0;
+
+    position: absolute;
+    top: 100%;
+
+    border-top: solid 1.4vh $black;
+    border-left: solid $triangle-width transparent;
+    border-right: solid $triangle-width transparent;
+  }
 }
 
 .favorite-heart {
